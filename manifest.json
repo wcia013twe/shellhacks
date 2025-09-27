@@ -17,8 +17,11 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["Report/*.js", "Report/*.css"],
+      "resources": ["Report/*.js", "Report/*.css", "EyeTracking/js/*.js", "EyeTracking/*.css"],
       "matches": ["<all_urls>"]
     }
-  ]
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
 }
