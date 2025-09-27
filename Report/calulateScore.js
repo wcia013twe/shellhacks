@@ -4,9 +4,12 @@ function calculateAttentionScore(
   totalTestTime
 ) {
   const actualAttention = (actualTimeOnComponent / totalTestTime) * 100;
-  const attentionGap = desiredAttention - actualAttention;
+  const attentionGap = actualAttention - desiredAttention;
 
   const distractionScore = attentionGap;
+  //   if distractionScore < 0, means the component got less attention than desired (unnoticed)
+  //   if distractionScore > 0, means the component got more attention than desired (distraction)
+  //   if distractionScore == 0, means optimal attention
 
   return {
     score: distractionScore,
