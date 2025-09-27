@@ -69,10 +69,37 @@
         display: inline-block;
         min-width: 48px;
       }
+      .modern-btn {
+        background: linear-gradient(90deg, #1e90ff 0%, #7ecfff 100%);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 28px;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        box-shadow: 0 2px 8px rgba(30, 144, 255, 0.15);
+        cursor: pointer;
+        transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+        margin-bottom: 12px;
+      }
+      .modern-btn:hover,
+      .modern-btn:focus {
+        background: linear-gradient(90deg, #339dff 0%, #aee7ff 100%);
+        color: #23283a;
+        transform: translateY(-2px) scale(1.03);
+        box-shadow: 0 4px 16px rgba(30, 144, 255, 0.22);
+        outline: none;
+      }
     </style>
   </head>
   <body>
-    <h2>Attention Report (Developer View)</h2>
+    <div>
+      <h2>Attention Report (Developer View)</h2>
+      <button class="modern-btn" id="recordBtn">
+        Record
+      </button>
+    </div>
 
     <div id="report-table"></div>
     <script src="reportData.js"></script>
