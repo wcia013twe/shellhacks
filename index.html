@@ -1,0 +1,70 @@
+<html>
+<head>
+	<title>WebGazer Simple Demo</title>
+	<script src="searchgazer.js" type="text/javascript"></script>
+	<style>
+		body { font-family: Arial, sans-serif; background: #fff; margin: 0; }
+		.controls { position: fixed; top: 20px; left: 20px; }
+		.controls button { margin-right: 8px; padding: 8px 16px; font-size: 15px; }
+		#gazeBubble {
+			position: absolute;
+			width: 40px;
+			height: 40px;
+			background: rgba(0,123,255,0.5);
+			border: 2px solid #007BFF;
+			border-radius: 50%;
+			pointer-events: none;
+			display: none;
+			z-index: 9999;
+		}
+	</style>
+</head>
+<body>
+	<div class="controls">
+		<button onclick="startWebgazer()">Run</button>
+		<button onclick="calibrateWebgazer()">Calibrate</button>
+		<button onclick="stopWebgazer()">Stop</button>
+	</div>
+	<div id="gazeBubble"></div>
+	<script>
+		// Show gaze bubble where user is looking
+		function showGazeBubble(x, y) {
+			var bubble = document.getElementById('gazeBubble');
+			bubble.style.left = (x - bubble.clientWidth/2) + 'px';
+			bubble.style.top = (y - bubble.clientHeight/2) + 'px';
+			bubble.style.display = 'block';
+		}
+
+		// Start SearchGazer
+		function startWebgazer() {
+			searchgazer.setGazeListener(function(data, elapsedTime) {
+				if (data == null) return;
+				showGazeBubble(data.x, data.y);
+			}).begin();
+			// Load calibration if exists
+			if (typeof searchgazer.loadData === 'function') searchgazer.loadData();
+		}
+
+		// Calibrate: show built-in calibration widget and save profile
+		function calibrateWebgazer() {
+			// Show the built-in calibration widget
+			if (typeof searchgazer.showCalibrationPoint === 'function') {
+				searchgazer.showCalibrationPoint();
+			} else {
+				alert('Calibration widget not available in this build.');
+			}
+			// Save calibration after a short delay (user should finish calibration first in real use)
+			setTimeout(function() {
+				if (typeof searchgazer.saveData === 'function') searchgazer.saveData();
+				alert('Calibration saved!');
+			}, 5000); // 5 seconds for demo; adjust as needed
+		}
+
+		// Stop SearchGazer
+		function stopWebgazer() {
+			if (typeof searchgazer.end === 'function') searchgazer.end();
+			document.getElementById('gazeBubble').style.display = 'none';
+		}
+	</script>
+</body>
+</html>
