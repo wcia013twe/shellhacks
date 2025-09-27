@@ -1,0 +1,176 @@
+/* content.css - Styles for the floating report panel */
+
+#attention-report-panel {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  width: 320px;
+  max-height: 500px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  z-index: 10000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow: hidden;
+  border: 1px solid #e1e5e9;
+}
+
+.panel-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 15px 20px;
+  cursor: move;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.panel-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+#close-panel {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+#close-panel:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.panel-content {
+  padding: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.sample-data h4 {
+  margin: 0 0 15px 0;
+  font-size: 14px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.component-item {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-left: 4px solid #ddd;
+}
+
+.component-item:last-child {
+  margin-bottom: 0;
+}
+
+.component-name {
+  font-weight: 500;
+  color: #2c3e50;
+  font-size: 13px;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.score-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.score {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.score.good {
+  background: #d4edda;
+  color: #155724;
+  border-left-color: #28a745;
+}
+
+.score.warning {
+  background: #fff3cd;
+  color: #856404;
+  border-left-color: #ffc107;
+}
+
+.score.bad {
+  background: #f8d7da;
+  color: #721c24;
+  border-left-color: #dc3545;
+}
+
+.component-item:has(.score.good) {
+  border-left-color: #28a745;
+}
+
+.component-item:has(.score.warning) {
+  border-left-color: #ffc107;
+}
+
+.component-item:has(.score.bad) {
+  border-left-color: #dc3545;
+}
+
+.classification {
+  font-size: 11px;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.test-info {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #e9ecef;
+}
+
+.test-info p {
+  margin: 0 0 8px 0;
+  font-size: 12px;
+  color: #495057;
+}
+
+.test-info p:last-child {
+  margin-bottom: 0;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Hover effect for the panel */
+#attention-report-panel:hover {
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+}
+
+/* Custom scrollbar for the content */
+.panel-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.panel-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.panel-content::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.panel-content::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}

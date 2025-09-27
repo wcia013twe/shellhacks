@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Eye Tracking Attention Analyzer",
+  "version": "1.0.0",
+  "description": "Analyze user attention patterns with eye tracking and provide accessibility insights.",
+  "permissions": ["activeTab", "storage"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Show Attention Report"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["*.js", "*.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
