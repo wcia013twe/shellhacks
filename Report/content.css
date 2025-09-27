@@ -1,0 +1,99 @@
+/* content.css - Styles for the floating report panel */
+
+/* Dark theme and simple styles for report panel */
+#attention-report-panel {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  width: 340px;
+  max-height: 520px;
+  background: #181c24;
+  border-radius: 10px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
+  z-index: 10000;
+  font-family: "Segoe UI", Arial, sans-serif;
+  overflow: hidden;
+  border: none;
+}
+
+.panel-header {
+  background: #23283a;
+  color: #fff;
+  padding: 14px 18px;
+  cursor: move;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #23283a;
+}
+
+.panel-header h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+}
+
+#close-panel {
+  background: none;
+  border: none;
+  color: #bbb;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+#close-panel:hover {
+  background: #23283a;
+  color: #fff;
+}
+
+.panel-content {
+  padding: 18px;
+  max-height: 400px;
+  overflow-y: auto;
+  background: #181c24;
+}
+
+.sample-data h4 {
+  margin: 0 0 12px 0;
+  font-size: 13px;
+  color: #b0b8d1;
+  font-weight: 500;
+}
+
+/* Remove extra component-item and score styles for simplicity */
+
+/* Subtle hover effect */
+#attention-report-panel:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+}
+
+.panel-content::-webkit-scrollbar {
+  width: 6px;
+}
+.panel-content::-webkit-scrollbar-track {
+  background: #23283a;
+  border-radius: 3px;
+}
+.panel-content::-webkit-scrollbar-thumb {
+  background: #444b5a;
+  border-radius: 3px;
+}
+.panel-content::-webkit-scrollbar-thumb:hover {
+  background: #5a6277;
+}
+.panel-content::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.panel-content::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
