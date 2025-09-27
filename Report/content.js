@@ -125,36 +125,4 @@ function calculateAttentionScore(
   };
 }
 
-// Initialize the extension when page loads
-function initializeExtension() {
-  console.log("Eye Tracking Attention Analyzer loaded");
-
-  // Create toggle button (temporary for testing)
-  const toggleBtn = document.createElement("button");
-  toggleBtn.textContent = "Show Report";
-  toggleBtn.id = "attention-toggle-btn";
-  toggleBtn.onclick = createReportPanel;
-
-  // Position the toggle button
-  toggleBtn.style.position = "fixed";
-  toggleBtn.style.top = "20px";
-  toggleBtn.style.right = "20px";
-  toggleBtn.style.zIndex = "10001";
-  toggleBtn.style.backgroundColor = "#4CAF50";
-  toggleBtn.style.color = "white";
-  toggleBtn.style.border = "none";
-  toggleBtn.style.padding = "10px 15px";
-  toggleBtn.style.borderRadius = "5px";
-  toggleBtn.style.cursor = "pointer";
-  toggleBtn.style.fontFamily = "Arial, sans-serif";
-  toggleBtn.style.fontSize = "12px";
-
-  document.body.appendChild(toggleBtn);
-}
-
-// Wait for page to load
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initializeExtension);
-} else {
-  initializeExtension();
-}
+// No toggle button or auto-injection for popup-only usage
